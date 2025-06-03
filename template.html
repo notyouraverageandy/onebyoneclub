@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your Challenge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f172a;
+      color: #f1f5f9;
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 {
+      color: #3b82f6;
+    }
+    a.cta {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background-color: #06b6d4;
+      color: white;
+      border-radius: 10px;
+      margin-top: 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="title"></h1>
+  <p id="bio"></p>
+  <a id="donate" class="cta" href="#" target="_blank">Donate $1</a>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("name");
+    const username = params.get("username");
+    const link = params.get("donation");
+
+    document.getElementById("title").textContent = `${name}'s $1 Challenge`;
+    document.getElementById("bio").textContent = `Hi! I’m ${name} and I’m trying to raise $1 from 1 million people. Let’s make it happen.`;
+    document.getElementById("donate").href = link || "#";
+  </script>
+</body>
+</html>
