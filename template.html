@@ -2,45 +2,67 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Your Challenge</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your $1 Challenge Page</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       background-color: #0f172a;
       color: #f1f5f9;
-      text-align: center;
       padding: 2rem;
+      text-align: center;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background-color: #1e293b;
+      padding: 2rem;
+      border-radius: 12px;
     }
     h1 {
+      font-size: 2.5rem;
       color: #3b82f6;
     }
-    a.cta {
+    .username {
+      font-size: 1rem;
+      color: #94a3b8;
+      margin-bottom: 1rem;
+    }
+    .donate-btn {
       display: inline-block;
+      margin-top: 2rem;
       padding: 1rem 2rem;
       background-color: #06b6d4;
       color: white;
-      border-radius: 10px;
-      margin-top: 1rem;
+      border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
+      font-size: 1.25rem;
+    }
+    .note {
+      margin-top: 2rem;
+      color: #94a3b8;
     }
   </style>
 </head>
 <body>
-  <h1 id="title"></h1>
-  <p id="bio"></p>
-  <a id="donate" class="cta" href="#" target="_blank">Donate $1</a>
+  <div class="container">
+    <h1 id="name"></h1>
+    <div class="username" id="username"></div>
+    <p>I’m taking the One by One $1 Million Challenge. My goal: ask 1 million people for $1. Wanna help me get there?</p>
+    <a id="donate" class="donate-btn" href="#" target="_blank">Donate $1</a>
+    <p class="note">Thanks for supporting my challenge. Share this page if you believe in it!</p>
+  </div>
 
   <script>
     const params = new URLSearchParams(window.location.search);
-    const name = params.get("name");
-    const username = params.get("username");
-    const link = params.get("donation");
+    const name = params.get('name');
+    const username = params.get('username');
+    const donation = params.get('donation');
 
-    document.getElementById("title").textContent = `${name}'s $1 Challenge`;
-    document.getElementById("bio").textContent = `Hi! I’m ${name} and I’m trying to raise $1 from 1 million people. Let’s make it happen.`;
-    document.getElementById("donate").href = link || "#";
+    document.getElementById('name').textContent = name || 'Your Name';
+    document.getElementById('username').textContent = `@${username}`;
+    document.getElementById('donate').href = donation || '#';
   </script>
 </body>
 </html>
